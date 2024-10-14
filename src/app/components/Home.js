@@ -5,9 +5,23 @@ import Image from "next/image"; // Import Image from next/image
 import Link from "next/link"; // Import Link for navigation // Make sure you import the Image component
 import Counter from "./Counter";
 import Slider from "./Slider";
+import Gallery from "./Gallery";
+import Testimonial from "./Testimonial";
+
+// Import your images that are in the local directory structure (e.g., within the src or app folders)
+// import whyusImage from "/assets/images/home-images/why-us/why-us.webp";
+// import founderImage from "../assets/images/home-images/founder/founder.webp";
+// import bannerImage from "../assets/images/home-images/hero/banner.webp";
+
+// import aboutglamImage from "../assets/images/home-images/about/about-glamblush.webp";
+// import serviceImage from "../assets/images/home-images/services/our-services.webp";
+// import ctaImage from "../assets/images/cta-section.webp";
 
 const Home = () => {
   const founderImage = "/assets/images/home-images/founder/founder.webp"; // Assuming the banner is stored here
+  const whyusImage = "/assets/images/home-images/why-us/why-us.webp";
+  const aboutglamImage = "/assets/images/home-images/about/about-glamblush.webp";
+  const serviceImage = "/assets/images/home-images/services/our-services.webp";
   return (
     <div>
       <div id="home">
@@ -202,6 +216,223 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+    
+<Gallery/>
+
+<div>
+      {/* Why join Glam Blush Academy? */}
+      <div
+        id="why-glam-blush"
+        className="section-banner background-image main-bg-color"
+        style={{
+          background: `url(${whyusImage}) center center`,
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 order-sm-2">
+              <div className="wrap-text">
+                <div className="section-title">
+                  <h2 className="title">Why join Glam Blush Academy?</h2>
+                </div>
+                <p>
+                  Glam Blush Makeup Academy offers industry-leading courses that empower students with essential makeup skills and confidence. Led by experienced professionals, our curriculum covers cutting-edge techniques and trends, preparing students for real-world success. Through internships, students have the unique opportunity to work on real brides and celebrity shoots, gaining invaluable hands-on experience that prepares them for success.
+                </p>
+
+                <div className="custom-btn">
+                  <a
+                    className="btn-style"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://api.whatsapp.com/send/?phone=919167263001"
+                  >
+                    Enquiry Now
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-6 order-sm-1 d-mobile-none">
+              <div className="about-img">
+                <Image
+                  src="/assets/images/home-images/why-us/why-us-mobile.webp" // Use Next.js Image component
+                  className="img-fluid"
+                  width={370}
+                  height={303}
+                  alt="Why join Glam Blush Academy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {/* 5 Star Accredited Academy */}
+    <div id="certificate" className="section-padding">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12 text-center">
+            <div className="section-title">
+              <h2 className="title2">5 Star Accredited Academy</h2>
+            </div>
+          </div>
+        </div>
+        <div className="row justify-content-center">
+          <div className="col-md-4 animate-box" data-animate-effect="fadeInUp">
+            <div className="glamblush-certificate">
+              <Image
+                src="/assets/images/home-images/certificate/international-certification1.webp" // Path for the image
+                className="img-fluid"
+                width={350} // Set width
+                height={501} // Set height
+                alt="International Certification 1" // Add descriptive alt text
+              />
+            </div>
+          </div>
+          <div className="col-md-4 animate-box" data-animate-effect="fadeInUp">
+            <div className="glamblush-certificate">
+              <Image
+                src="/assets/images/home-images/certificate/international-certification2.webp" // Path for the image
+                className="img-fluid"
+                width={350} // Set width
+                height={417} // Set height
+                alt="International Certification 2" // Add descriptive alt text
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="about-glam-blush"
+      className="section-banner background-image main-bg-color"
+      style={{
+        background: `url(${aboutglamImage}) center center`,
+        backgroundSize: "cover",
+      }}
+    >
+      <div className="container">
+        <div className="row">
+          <div className="col-md-5 order-sm-2">
+            <div className="wrap-text">
+              <div className="section-title">
+                <h2 className="title">About Glam Blush</h2>
+              </div>
+              <p>
+                Glam Blush stands out as the best makeup academy in Mumbai and
+                India, offering comprehensive and professional makeup artist
+                courses in Mumbai. Our dedication to excellence and innovation
+                in makeup education sets us apart as the leading makeup
+                academy in Mumbai, preparing students for successful careers
+                in the beauty industry.
+              </p>
+              <div className="custom-btn mb-20">
+                <a className="btn-style" href="about.php">
+                  Know More
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-6 order-sm-2 d-mobile-none">
+            <div className="about-img m-0">
+              <Image
+                src="/assets/images/home-images/about/about-glamblush-mobile.webp" // Path for the image
+                className="img-fluid"
+                width={370} // Set width
+                height={330} // Set height
+                alt="About Glam Blush" // Add descriptive alt text
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+ {/* Brands We Use */}
+ <div id="glamblush-brands" className="section-padding">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12 text-center">
+            <div className="section-title">
+              <h2 className="title2">Brands We Use</h2>
+            </div>
+          </div>
+        </div>
+        <div className="row gap-1 justify-content-center">
+          {Array.from({ length: 10 }, (_, index) => (
+            <div key={index} className="col-md-2 col-sm-6 p-lg-0 animate-box" data-animate-effect="fadeInUp">
+              <div className="glamblush-brands">
+                <Image
+                  src={`/assets/images/home-images/brands/${index + 1}.webp`} // Updated path for new image names
+                  className="img-fluid"
+                  width={188}
+                  height={121}
+                  alt={`Brand Item ${index + 1}`}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+      {/* Our Services */}
+      <div id="our-services" className="section-banner background-image main-bg-color"
+      style={{
+        background: `url(${serviceImage}) center center`,
+        backgroundSize: "cover",
+      }}>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6 d-mobile-none">
+            <div className="about-img">
+              <Image
+                src="/assets/images/home-images/services/our-services-mobile.webp"
+                className="img-fluid"
+                width={370}
+                height={330}
+                alt=""
+              />
+            </div>
+          </div>
+          <div className="offset-md-6 col-md-6">
+            <div className="wrap-text">
+              <div className="section-title">
+                <h2 className="title">Our Services</h2>
+              </div>
+              <p>
+                Beyond our renowned makeup artist courses in Mumbai, Glam
+                Blush offers specialized beauty services. From bridal to
+                editorial makeup, our studio demonstrates the expertise and
+                elegance that you would expect from the top makeup academy in
+                Mumbai.
+              </p>
+              <ul className="services-list">
+                <li>Bridal makeup / hairstyling</li>
+                <li>Photo shoot</li>
+                <li>Pre wedding shoots</li>
+                <li>Party makeup / hairstyling</li>
+                <li>Engagement makeup / hairstyling</li>
+                <li>Sangeet makeup / hairstyling</li>
+                <li>Theatre makeup / hairstyling</li>
+              </ul>
+              <div className="custom-btn">
+                <a className="btn-style" target="_blank" rel="noopener noreferrer"
+                  href="https://api.whatsapp.com/send/?phone=919167263001">
+                  Make A Reservation
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <Testimonial/>
+
 
 
     </div>
