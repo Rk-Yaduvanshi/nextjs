@@ -28,7 +28,7 @@ const Home = () => {
                       <div className="slider-text-inner">
                         <div className="mx-auto frame-inner">
                           <h2>
-                            Becom a Certified Makeup & Hairstyling Expert with
+                            Become an Certified Makeup & Hairstyling Expert with
                             our Industry-Centric Courses
                           </h2>
                           <div className="enroll-now-btn">
