@@ -24,6 +24,7 @@ function Counter() {
     });
   }, []);
 
+  
   return (
     <div className="counter-section section-padding">
       <div className="container">

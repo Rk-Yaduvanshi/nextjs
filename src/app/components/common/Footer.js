@@ -93,13 +93,12 @@ function Footer() {
                 <ul className="copy-write d-lg-flex text-center justify-content-between">
                   <li>© 2024 glamblush</li>
                   <li>
-                    Developed and Maintained by
+                    Developed and Maintained by 
                     <a
                       href="https://eskonwebsolutions.com/"
                       target="_blank"
                       rel="noopener noreferrer"
-                    >
-                      Eskon Web Solutions
+                    > Eskon Web Solutions
                     </a>
                   </li>
                 </ul>

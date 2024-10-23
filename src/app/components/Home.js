@@ -7,6 +7,7 @@ import Counter from "./Counter";
 import Slider from "./Slider";
 import Gallery from "./Gallery";
 import Testimonial from "./Testimonial";
+import Faq from "./Faq";
 
 // Import your images that are in the local directory structure (e.g., within the src or app folders)
 // import whyusImage from "/assets/images/home-images/why-us/why-us.webp";
@@ -18,10 +19,18 @@ import Testimonial from "./Testimonial";
 // import ctaImage from "../assets/images/cta-section.webp";
 
 const Home = () => {
+
+  
+  
   const founderImage = "/assets/images/home-images/founder/founder.webp"; // Assuming the banner is stored here
   const whyusImage = "/assets/images/home-images/why-us/why-us.webp";
   const aboutglamImage = "/assets/images/home-images/about/about-glamblush.webp";
   const serviceImage = "/assets/images/home-images/services/our-services.webp";
+  const ctaImage = "../assets/images/cta-section.webp";
+
+
+
+  
   return (
     <div>
       <div id="home">
@@ -432,6 +441,191 @@ const Home = () => {
     </div>
 
     <Testimonial/>
+    <Faq/>
+
+    <section id="get-in-touch" className="get-in-touch section-padding main-bg-color">
+      <div className="container-fluid" data-aos="fade-up">
+        <div className="row" data-aos="fade-up" data-aos-delay="100">
+          <div className="col-lg-6 pr-lg-4 mb-mobile">
+            {/* Contact Form */}
+            <div className="col-md-12 text-center">
+              <h2 className="glamblush-heading animate-box" data-animate-effect="fadeInUp">
+                Get in touch
+              </h2>
+              <p>
+                Have a query? Complete the form below and our team will get back to you as soon as possible.
+              </p>
+            </div>
+
+            <form
+              id="contact-form"
+              name="contact-form"
+              className="aos-init aos-animate"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div className="row">
+                <div className="col-md-6 form-group">
+                  <label htmlFor="name">Name</label>
+                  <input type="text" name="name" className="form-control" id="name" placeholder="Name" />
+                  <span className="error_field" id="name_error"></span>
+                </div>
+                <div className="col-md-6 form-group mt-3 mt-md-0">
+                  <label htmlFor="email">Email ID</label>
+                  <input type="email" className="form-control" name="email" id="email" placeholder="Email" />
+                  <span className="error_field" id="email_error"></span>
+                </div>
+                <div className="col-md-6 form-group mt-3 mt-md-0">
+                  <label htmlFor="phone">Phone No.</label>
+                  <div className="flex-number">
+                    <p className="mb-0">+91</p>
+                    <input type="text" className="form-control" name="phone" id="phone" placeholder="0000000000" />
+                  </div>
+                  <span className="error_field" id="phone_error"></span>
+                </div>
+                <div className="col-md-6 form-group mt-3 mt-md-0">
+                  <label htmlFor="city">City</label>
+                  <input type="text" className="form-control" name="city" id="city" placeholder="Your City" />
+                  <span className="error_field" id="city_error"></span>
+                </div>
+
+                <div className="col-md-12 form-group mt-3 mt-md-0">
+                  <label htmlFor="course">Select Course</label>
+                  <select aria-label="course" name="course" id="course" className="form-select">
+                    <option value="" disabled="disabled" selected="selected"></option>
+                    <option value="04 Weeks Professional Hair Styling Course">
+                      04 Weeks Professional Hair Styling Course
+                    </option>
+                    <option value="06 Weeks Bridal Makeup And Hair Styling Course">
+                      06 Weeks Bridal Makeup And Hair Styling Course
+                    </option>
+                    <option value="08 Weeks Professional Makeup And Hair Styling Course">
+                      08 Weeks Professional Makeup And Hair Styling Course
+                    </option>
+                    <option value="Personal Grooming Course">Personal Grooming Course</option>
+                    <option value="Weekend Professional Makeup And Hair Styling Course">
+                      Weekend Professional Makeup And Hair Styling Course
+                    </option>
+                  </select>
+                  <span className="error_field" id="course_error"></span>
+                </div>
+              </div>
+
+              <div className="custom-btn text-center">
+                <button className="btn-style" type="submit" id="send" name="send">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div className="col-lg-6">
+            {/* Map Image */}
+            <div className="map-img">
+              <a
+                target="_blank"
+                rel="noreferrer noopener"
+                aria-label="map"
+                href="https://www.google.com/maps/place/GlamBlush+Best+Makeup+Academy+in+Mumbai/@19.174288,72.841571,14z/data=!4m6!3m5!1s0x3be7b6faeb9ac9e9:0xeb647dd47ec4bb70!8m2!3d19.1742882!4d72.8415714!16s%2Fg%2F11fxqwc1kk?hl=en-GB&entry=ttu"
+              >
+                <Image
+                  src="/assets/images/home-images/map.webp"
+                  className="m-none"
+                  width={735}
+                  height={453}
+                  alt="Map of GlamBlush location"
+                />
+                <Image
+                  src="/assets/images/home-images/map2.webp"
+                  className="d-none"
+                  width={400}
+                  height={247}
+                  alt="Map of GlamBlush location"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" className="contact section-padding">
+      <div className="container" data-aos="fade-up">
+        <div className="row">
+          <div className="col-md-12 text-center">
+            <div className="section-title">
+              <h2 className="title2">Contact us</h2>
+            </div>
+          </div>
+        </div>
+
+        <div className="row" data-aos="fade-up" data-aos-delay="100">
+          <div className="col-lg-3 col-md-6 mb-sm-2">
+            <div className="info-box">
+              <i className="ti-mobile"></i>
+              <h3>Call Us</h3>
+              <p>
+                <a href="tel:+919167263001">+91 9167263001</a>
+              </p>
+            </div>
+          </div>
+          <div className="col-lg-3 col-md-6">
+            <div className="info-box">
+              <i className="ti-email"></i>
+              <h3>Email Us</h3>
+              <p>
+                <a href="mailto:info@glamblush.in">info@glamblush.in</a>
+              </p>
+            </div>
+          </div>
+          <div className="col-lg-6">
+            <div className="info-box mb-0">
+              <i className="ti-location-pin"></i>
+              <h3>Our Address</h3>
+              <p>
+                1132/1099, Rustomjee Eaze Zone Mall, Vasari Hill Road, Sunder
+                Nagar, Malad (W), Opposite Noble Chemist, Near Goregaon MTNL
+                Telephone Exchange, Mumbai, Maharashtra - 400064.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      id="footer"
+      className="footer-section background-image"
+      style={{
+        background: `url(${ctaImage}) center center`,
+        backgroundSize: 'cover',
+      }}
+    >
+      <div className="left-fade"></div>
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-10">
+            <div className="wrap-text text-center">
+              <h2 className="glamblush-heading">
+                Craft Your Future In Makeup Artistry At Mumbai Top Makeup&apos;s Academy
+              </h2>
+              <div className="custom-btn">
+                <a
+                  className="btn-style"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://api.whatsapp.com/send/?phone=919167263001"
+                >
+                  Enquiry Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 
 
 
