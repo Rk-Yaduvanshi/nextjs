@@ -1887,3 +1887,6 @@ select:focus {
 .card__content .slider-content {
     border: 1px solid rgb(238, 238, 238, 0.5)!important;
 }
+.gap-0{
+    gap: 0;
+}

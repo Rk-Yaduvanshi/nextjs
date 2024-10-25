@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation"; // Import useRouter from next/navigation
 
 const Header = () => {
   const [scrollY, setScrollY] = useState(0);
   const [submenuActive, setSubmenuActive] = useState(false);
+  const router = useRouter(); // Initialize useRouter
 
   // Handle scroll to update scrollY state
   useEffect(() => {
@@ -15,9 +17,7 @@ const Header = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    // Set initial scroll position on mount
-    setScrollY(window.scrollY);
+    setScrollY(window.scrollY); // Set initial scroll position on mount
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -82,17 +82,16 @@ const Header = () => {
   }, [submenuActive]);
 
   // Close sidebar when navigating to another page
-  useEffect(() => {
+  const handleLinkClick = () => {
     const menu = document.querySelector(".glamblush-menu");
     const toggleButton = document.querySelector(".ann-js-glamblush-nav-toggle");
     const body = document.body;
 
-    if (body.classList.contains("menu-open")) {
-      toggleButton.classList.remove("active");
-      body.classList.remove("menu-open");
-      menu.classList.remove("glamblush-menu-show");
-    }
-  }, []); // No dependency since we aren't using useLocation
+    // Close the menu for any link click
+    toggleButton.classList.remove("active");
+    body.classList.remove("menu-open");
+    menu.classList.remove("glamblush-menu-show");
+  };
 
   const toggleSubmenu = () => {
     setSubmenuActive((prev) => !prev);
@@ -100,6 +99,7 @@ const Header = () => {
 
   return (
     <div>
+      {/* Your existing JSX code */}
       <div className="progress-wrap">
         <svg
           className="progress-circle svg-content"
@@ -123,10 +123,10 @@ const Header = () => {
         <div className="glamblush-menu-inner" id="ann-navbar">
           <ul className="list-unstyled">
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/" onClick={handleLinkClick}>Home</Link>
             </li>
             <li>
-              <Link href="/about">About</Link>
+              <Link href="/about" onClick={handleLinkClick}>About</Link>
             </li>
             <li className="has-menu" onClick={toggleSubmenu}>
               <a href="#0" style={{ position: "relative" }}>
@@ -136,38 +136,37 @@ const Header = () => {
                 className="ti-arrow-down"
                 style={{ position: "absolute", right: "10%" }}
               ></i>
-
               <ul className={`submenu ${submenuActive ? "active" : ""}`}>
                 <li>
-                  <Link href="/8-week-professional">
+                  <Link href="/8-week-professional" onClick={handleLinkClick}>
                     08 Weeks Professional Makeup And Hair Styling Course
                   </Link>
                 </li>
                 <li>
-                  <Link href="/6-weeks-bridal-makeup-and-hair-styling-course">
+                  <Link href="/6-weeks-bridal-makeup-and-hair-styling-course" onClick={handleLinkClick}>
                     06 Weeks Bridal Makeup And Hair Styling Course
                   </Link>
                 </li>
                 <li>
-                  <Link href="/4-weeks-professional-hair-styling-course">
+                  <Link href="/4-weeks-professional-hair-styling-course" onClick={handleLinkClick}>
                     04 Weeks Professional Hair Styling Course
                   </Link>
                 </li>
                 <li>
-                  <Link href="/weekend-professional-makeup-and-hair-styling-course">
+                  <Link href="/weekend-professional-makeup-and-hair-styling-course" onClick={handleLinkClick}>
                     Weekend Professional Makeup And Hair Styling Course
                   </Link>
                 </li>
                 <li>
-                  <Link href="/personal-makeup">Personal Grooming Course</Link>
+                  <Link href="/personal-makeup" onClick={handleLinkClick}>Personal Grooming Course</Link>
                 </li>
               </ul>
             </li>
             <li>
-              <Link href="/gallery">Gallery</Link>
+              <Link href="/gallery" onClick={handleLinkClick}>Gallery</Link>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <Link href="/contact" onClick={handleLinkClick}>Contact</Link>
             </li>
           </ul>
         </div>
