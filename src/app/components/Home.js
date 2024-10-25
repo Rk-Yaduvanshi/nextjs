@@ -564,7 +564,8 @@ const Home = () => {
             <div className="info-box">
               <i className="ti-mobile"></i>
               <h3>Call Us</h3>
-              <p>
+              <p>  
+                 
                 <a href="tel:+919167263001">+91 9167263001</a>
               </p>
             </div>
