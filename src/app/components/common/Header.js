@@ -191,9 +191,10 @@ const Header = () => {
           <div className="row align-items-center justify-content-space-between">
             <div className="col-md-4 glamblush-header-courses">
               <div>
-                <a href="#courses">
-                  <h4>Our Courses</h4>
-                </a>
+               
+                <Link href="/#courses">
+                <h4>Our Courses</h4>
+                </Link>
               </div>
             </div>
             {/* Logo */}

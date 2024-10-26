@@ -9,7 +9,7 @@ const Slider = () => {
       <section className="container-fluid">
         <Swiper
           loop={true}
-          spaceBetween={0}
+          spaceBetween={0} 
           grabCursor={true}
           autoplay={{
             delay: 3000,

@@ -130,7 +130,7 @@ const Home = () => {
               <i className="fa fa-play play-icon"></i>
             </div>
           </div>
-        </div>
+        </div> 
       </div>
 
       <Counter />

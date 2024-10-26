@@ -81,7 +81,7 @@ return (
             </button>
         </div>
 
-        <div className="row glamblush-photos px-2 mt-4 gap-3" id="filterable-cards">
+        <div className="row glamblush-photos px-2 mt-4 gap-0" id="filterable-cards">
             {/* Bridal Look */}
             <div className="card p-0" data-name="bridal-look">
                 <a className="d-block glamblush-photo-item" data-fancybox="images"
@@ -97,6 +97,7 @@ return (
                         alt="Bridal Look 2" width={600} height={400}  />
                 </a>
             </div>
+           
             <div className="card p-0" data-name="bridal-look">
                 <a className="d-block glamblush-photo-item" data-fancybox="images"
                     href="/assets/images/home-images/gallery/bridal-look/3b.webp">
@@ -104,6 +105,42 @@ return (
                         alt="Bridal Look 3" width={600} height={400}  />
                 </a>
             </div>
+            <div className="card p-0" data-name="bridal-look">
+                <a className="d-block glamblush-photo-item" data-fancybox="images"
+                    href="/assets/images/home-images/gallery/bridal-look/4b.webp">
+                    <Image className="img-fluid" src="/assets/images/home-images/gallery/bridal-look/4.webp"
+                        alt="Bridal Look 3" width={600} height={400}  />
+                </a>
+            </div>
+            <div className="card p-0" data-name="bridal-look">
+                <a className="d-block glamblush-photo-item" data-fancybox="images"
+                    href="/assets/images/home-images/gallery/bridal-look/5b.webp">
+                    <Image className="img-fluid" src="/assets/images/home-images/gallery/bridal-look/5.webp"
+                        alt="Bridal Look 3" width={600} height={400}  />
+                </a>
+            </div>
+            <div className="card p-0" data-name="bridal-look">
+                <a className="d-block glamblush-photo-item" data-fancybox="images"
+                    href="/assets/images/home-images/gallery/bridal-look/6b.webp">
+                    <Image className="img-fluid" src="/assets/images/home-images/gallery/bridal-look/6.webp"
+                        alt="Bridal Look 3" width={600} height={400}  />
+                </a>
+            </div>
+            <div className="card p-0" data-name="bridal-look">
+                <a className="d-block glamblush-photo-item" data-fancybox="images"
+                    href="/assets/images/home-images/gallery/bridal-look/7b.webp">
+                    <Image className="img-fluid" src="/assets/images/home-images/gallery/bridal-look/7.webp"
+                        alt="Bridal Look 3" width={600} height={400}  />
+                </a>
+            </div>
+            <div className="card p-0" data-name="bridal-look">
+                <a className="d-block glamblush-photo-item" data-fancybox="images"
+                    href="/assets/images/home-images/gallery/bridal-look/8b.webp">
+                    <Image className="img-fluid" src="/assets/images/home-images/gallery/bridal-look/8.webp"
+                        alt="Bridal Look 3" width={600} height={400}  />
+                </a>
+            </div>
+
 
             {/* Celebrity Look */}
             <div className="card p-0" data-name="celebrity-look">
@@ -117,6 +154,41 @@ return (
                 <a className="d-block glamblush-photo-item" data-fancybox="images"
                     href="/assets/images/home-images/gallery/celebrity-look/2b.webp">
                     <Image className="img-fluid" src="/assets/images/home-images/gallery/celebrity-look/2.webp"
+                        alt="Celebrity Look 2" width={600} height={400}  />
+                </a>
+            </div>
+            <div className="card p-0" data-name="celebrity-look">
+                <a className="d-block glamblush-photo-item" data-fancybox="images"
+                    href="/assets/images/home-images/gallery/celebrity-look/3b.webp">
+                    <Image className="img-fluid" src="/assets/images/home-images/gallery/celebrity-look/3.webp"
+                        alt="Celebrity Look 2" width={600} height={400}  />
+                </a>
+            </div>
+            <div className="card p-0" data-name="celebrity-look">
+                <a className="d-block glamblush-photo-item" data-fancybox="images"
+                    href="/assets/images/home-images/gallery/celebrity-look/4b.webp">
+                    <Image className="img-fluid" src="/assets/images/home-images/gallery/celebrity-look/4.webp"
+                        alt="Celebrity Look 2" width={600} height={400}  />
+                </a>
+            </div>
+            <div className="card p-0" data-name="celebrity-look">
+                <a className="d-block glamblush-photo-item" data-fancybox="images"
+                    href="/assets/images/home-images/gallery/celebrity-look/5b.webp">
+                    <Image className="img-fluid" src="/assets/images/home-images/gallery/celebrity-look/5.webp"
+                        alt="Celebrity Look 2" width={600} height={400}  />
+                </a>
+            </div>
+            <div className="card p-0" data-name="celebrity-look">
+                <a className="d-block glamblush-photo-item" data-fancybox="images"
+                    href="/assets/images/home-images/gallery/celebrity-look/6b.webp">
+                    <Image className="img-fluid" src="/assets/images/home-images/gallery/celebrity-look/6.webp"
+                        alt="Celebrity Look 2" width={600} height={400}  />
+                </a>
+            </div>
+            <div className="card p-0" data-name="celebrity-look">
+                <a className="d-block glamblush-photo-item" data-fancybox="images"
+                    href="/assets/images/home-images/gallery/celebrity-look/7b.webp">
+                    <Image className="img-fluid" src="/assets/images/home-images/gallery/celebrity-look/7.webp"
                         alt="Celebrity Look 2" width={600} height={400}  />
                 </a>
             </div>
