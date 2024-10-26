@@ -9,6 +9,7 @@ import '../styles/flexslider.css';
 import '../styles/style.css';
 import '../styles/correction.css';
 import '../styles/swiper-bundle.min.css';
+import '../styles/font-awesome.css';
 // import '../styles/styles.css';
 import '../styles/styles.css';
 

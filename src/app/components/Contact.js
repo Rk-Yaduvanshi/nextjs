@@ -1,8 +1,55 @@
 "use client";
-import React from 'react';
-import Faq from './Faq';
+import { useState } from "react";
+import React from "react";
+import Faq from "./Faq";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    city: "",
+    course: "",
+  });
+
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://nextjs-h2e7.vercel.app/contact-form.php", {
+        method: "POST",
+        body: new URLSearchParams(formData),
+      });
+
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || 'Something went wrong');
+
+      if (result.success) {
+        // Redirect to thank you page or show a success message
+        window.location.href = "/thank-you";
+      } else {
+        setErrors(result.error);
+      }
+    } catch (error) {
+      console.error("Submission Error:", error);
+      setErrors({ general: "Submission failed. Please try again later." });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div>
       <div
@@ -24,7 +71,7 @@ const Contact = () => {
                 <div className="section-title">
                   <h2 className="title2">Get in touch</h2>
                 </div>
-                <p>For Any Query Contact us</p>
+                <p>For any query, contact us</p>
               </div>
               <form
                 id="contact-form"
@@ -32,49 +79,96 @@ const Contact = () => {
                 className="aos-init aos-animate"
                 data-aos="fade-up"
                 data-aos-delay="100"
+                onSubmit={handleSubmit}
               >
                 <div className="row">
                   <div className="col-md-6 form-group">
                     <label htmlFor="name">Name</label>
-                    <input type="text" name="name" className="form-control" id="name" placeholder="Name" />
-                    <span className="error_field" id="name_error"></span>
+                    <input
+                      type="text"
+                      name="name"
+                      className="form-control"
+                      id="name"
+                      placeholder="Name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                    />
+                    {errors.name_error && <span className="error_field">{errors.name_error}</span>}
                   </div>
+
                   <div className="col-md-6 form-group mt-3 mt-md-0">
                     <label htmlFor="email">Email ID</label>
-                    <input type="email" name="email" className="form-control" id="email" placeholder="Email" />
-                    <span className="error_field" id="email_error"></span>
+                    <input
+                      type="email"
+                      name="email"
+                      className="form-control"
+                      id="email"
+                      placeholder="Email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                    {errors.email_error && <span className="error_field">{errors.email_error}</span>}
                   </div>
+
                   <div className="col-md-6 form-group mt-3 mt-md-0">
                     <label htmlFor="phone">Phone No.</label>
                     <div className="flex-number">
                       <p className="mb-0">+91</p>
-                      <input type="text" className="form-control" name="phone" id="phone" placeholder="0000000000" />
+                      <input
+                        type="text"
+                        className="form-control"
+                        name="phone"
+                        id="phone"
+                        placeholder="0000000000"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        required
+                      />
                     </div>
-                    <span className="error_field" id="phone_error"></span>
+                    {errors.phone_error && <span className="error_field">{errors.phone_error}</span>}
                   </div>
+
                   <div className="col-md-6 form-group mt-3 mt-md-0">
                     <label htmlFor="city">City</label>
-                    <input type="text" className="form-control" name="city" id="city" placeholder="Your City" />
-                    <span className="error_field" id="city_error"></span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="city"
+                      id="city"
+                      placeholder="Your City"
+                      value={formData.city}
+                      onChange={handleChange}
+                      required
+                    />
+                    {errors.city_error && <span className="error_field">{errors.city_error}</span>}
                   </div>
+
                   <div className="col-md-12 form-group mt-3 mt-md-0">
                     <label htmlFor="course">Select Course</label>
-                    <select name="course" id="course" className="form-select">
-                      <option value="" disabled selected>
-                        Select Course
-                      </option>
+                    <select
+                      name="course"
+                      id="course"
+                      className="form-select"
+                      value={formData.course}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="" disabled>Select Course</option>
                       <option value="04 Weeks Professional Hair Styling Course">04 Weeks Professional Hair Styling Course</option>
                       <option value="06 Weeks Bridal Makeup And Hair Styling Course">06 Weeks Bridal Makeup And Hair Styling Course</option>
                       <option value="08 Weeks Professional Makeup And Hair Styling Course">08 Weeks Professional Makeup And Hair Styling Course</option>
                       <option value="Personal Grooming Course">Personal Grooming Course</option>
                       <option value="Weekend Professional Makeup And Hair Styling Course">Weekend Professional Makeup And Hair Styling Course</option>
                     </select>
-                    <span className="error_field" id="course_error"></span>
+                    {errors.course_error && <span className="error_field">{errors.course_error}</span>}
                   </div>
                 </div>
+
                 <div className="custom-btn text-center mb-20">
-                  <button className="btn-style" type="submit" id="send">
-                    Submit
+                  <button className="btn-style" type="submit" id="send" disabled={isSubmitting}>
+                    {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
                 </div>
               </form>
@@ -88,81 +182,83 @@ const Contact = () => {
                 height="450"
                 frameBorder="0"
                 style={{ border: 0 }}
-                allowFullScreen=""
-              ></iframe>
+                allowFullScreen
+              />
             </div>
           </div>
         </div>
       </section>
-      <Faq/>
+      <Faq />
       <section id="contact" className="contact section-padding">
-  <div className="container" data-aos="fade-up">
-    <div className="row">
-      <div className="col-md-12 text-center">
-        <div className="section-title">
-          <h2 className="title2">Contact us</h2>
+        <div className="container" data-aos="fade-up">
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <div className="section-title">
+                <h2 className="title2">Contact us</h2>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-3 col-md-6">
+              <div className="info-box">
+                <i className="ti-email" />
+                <h3>Email</h3>
+                <p>info@glamblush.in</p>
+              </div>
+            </div>
+            <div className="col-lg-3 col-md-6">
+              <div className="info-box">
+                <i className="ti-mobile" />
+                <h3>Phone</h3>
+                <p>+91 9167263001</p>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="info-box mb-0">
+                <i className="ti-location-pin" />
+                <h3>Office</h3>
+                <p className="add">
+                  1132/1099, Rustomjee Eaze Zone Mall, Vasari Hill Road, Sunder
+                  Nagar, Malad (W), Opposite Noble Chemist, Near Goregaon MTNL
+                  Telephone Exchange, Mumbai, Maharashtra - 400064.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div className="row">
-      <div className="col-lg-3 col-md-6">
-        <div className="info-box">
-          <i className="ti-email"></i>
-          <h3>Email</h3>
-          <p>info@glamblush.in</p>
-        </div>
-      </div>
-      <div className="col-lg-3 col-md-6">
-        <div className="info-box">
-          <i className="ti-mobile"></i>
-          <h3>Phone</h3>
-          <p>+91 9167263001</p>
-        </div>
-      </div>
-      <div className="col-lg-6">
-        <div className="info-box mb-0">
-          <i className="ti-location-pin"></i>
-          <h3>Office</h3>
-          <p className="add">
-            1132/1099, Rustomjee Eaze Zone Mall, Vasari Hill Road, Sunder Nagar, Malad (W),
-            Opposite Noble Chemist, Near Goregaon MTNL Telephone Exchange, Mumbai, Maharashtra - 400064.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<div
-  id="footer"
-  className="footer-section background-image"
-  style={{
-    background: "url('./assets/images/cta-section.webp') center center",
-    backgroundSize: "cover",
-  }}
->
-  <div className="left-fade"></div>
-  <div className="container">
-    <div className="row justify-content-center">
-      <div className="col-md-10">
-        <div className="wrap-text text-center">
-          <h2 className="glamblush-heading">
-            Craft Your Future In Makeup Artistry At Mumbai Top Makeup&apos;s Academy
-          </h2>
-          <div className="custom-btn">
-            <a
-              className="btn-style"
-              target="_blank"
-              href="https://api.whatsapp.com/send/?phone=919167263001"
-            >
-              Enquiry Now
-            </a>
+      </section>
+      <div
+        id="footer"
+        className="footer-section background-image"
+        style={{
+          background: "url('./assets/images/cta-section.webp') center center",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="left-fade" />
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-md-10">
+              <div className="wrap-text text-center">
+                <h2 className="glamblush-heading">
+                  Craft Your Future In Makeup Artistry At Mumbai&apos;s Top
+                  Makeup Academy
+                </h2>
+                <div className="custom-btn">
+                  <a
+                    className="btn-style"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://api.whatsapp.com/send/?phone=919167263001"
+                  >
+                    Enquiry Now
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
     </div>
   );
 };

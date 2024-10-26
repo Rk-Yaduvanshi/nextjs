@@ -212,7 +212,7 @@ const Header = () => {
             {/* Menu Burger */}
             <div className="col-md-4 text-right glamblush-menu-burger-wrap">
               <div className="glamblush-header-btn">
-                <Link href="reach-us">
+                <Link href="/contact">
                   <span>Enquiry Now</span>
                 </Link>
               </div>

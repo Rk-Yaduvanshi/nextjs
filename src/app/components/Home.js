@@ -1,5 +1,5 @@
 "use client"; // Make it a client component
-
+import { useEffect } from 'react';
 import React from "react";
 import Image from "next/image"; // Import Image from next/image
 import Link from "next/link"; // Import Link for navigation // Make sure you import the Image component
@@ -29,7 +29,50 @@ const Home = () => {
   const ctaImage = "../assets/images/cta-section.webp";
 
 
+  useEffect(() => {
+    const videoContainers = document.querySelectorAll('.video-container');
 
+    videoContainers.forEach((container) => {
+      const videoEmbed = container.querySelector('.video-embed');
+      const mobilePlaceholder = container.querySelector('.mobile-placeholder');
+      const playIcon = container.querySelector('.play-icon');
+      const mobilePlayBtn = container.querySelector('.mobile-play-btn');
+
+      function playVideo() {
+        if (!videoEmbed.innerHTML) {
+          videoEmbed.innerHTML = `
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/szQuOmwt7Ro?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=szQuOmwt7Ro" frameborder="0" allowfullscreen></iframe>
+          `;
+          videoEmbed.style.display = 'block';
+          mobilePlaceholder.style.display = 'none';
+          mobilePlayBtn.style.display = 'none'; // Hide play button after playing
+        }
+      }
+
+      function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+      }
+
+      container.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          playVideo();
+        }
+      });
+
+      window.addEventListener('scroll', () => {
+        if (isInViewport(container)) {
+          playVideo();
+        }
+      });
+
+      playIcon.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          playVideo();
+        }
+      });
+    });
+  }, []);
   
   return (
     <div>
