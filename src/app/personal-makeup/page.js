@@ -26,8 +26,8 @@ const Page = () => {
                   <div id="Module1">
                     <div className="about-img">
                       <Image
-                         src="/assets/images/courses/personal-grooming-course/personal-grooming.jpg" 
-                         alt="Module 1" 
+                        src="/assets/images/courses/personal-grooming-course/personal-grooming.jpg"
+                        alt="Module 1"
                         layout="responsive"
                         width={800} // Adjust as needed
                         height={600} // Adjust as needed
@@ -79,7 +79,7 @@ const Page = () => {
           <div className="row">
             <div className="col-md-3 p-0">
               <Image
-                src="/assets/images/courses/personal-grooming-course/curriculum/1.png"
+                src="/assets/images/courses/personal-grooming-course/Curriculum/1.png"
                 alt="Curriculum Image 1"
                 width={500} // Adjust the width as needed
                 height={600} // Adjust the height as needed
@@ -87,7 +87,7 @@ const Page = () => {
             </div>
             <div className="col-md-3 p-0">
               <Image
-                src="/assets/images/courses/personal-grooming-course/curriculum/2.png"
+                src="/assets/images/courses/personal-grooming-course/Curriculum/2.png"
                 alt="Curriculum Image 2"
                 width={500} // Adjust the width as needed
                 height={600} // Adjust the height as needed
@@ -95,7 +95,7 @@ const Page = () => {
             </div>
             <div className="col-md-3 p-0">
               <Image
-                src="/assets/images/courses/personal-grooming-course/curriculum/3.png"
+                src="/assets/images/courses/personal-grooming-course/Curriculum/3.png"
                 alt="Curriculum Image 3"
                 width={500} // Adjust the width as needed
                 height={600} // Adjust the height as needed
@@ -103,7 +103,7 @@ const Page = () => {
             </div>
             <div className="col-md-3 p-0">
               <Image
-                src="/assets/images/courses/personal-grooming-course/curriculum/4.png"
+                src="/assets/images/courses/personal-grooming-course/Curriculum/4.png"
                 alt="Curriculum Image 4"
                 width={500} // Adjust the width as needed
                 height={600} // Adjust the height as needed
@@ -177,22 +177,18 @@ const Page = () => {
           backgroundImage: "url('/assets/images/cta-section.png')",
           backgroundPosition: "center center",
           backgroundSize: "cover",
-        }}
-      >
+        }}>
         <div className="left-fade"></div>
-
         <div className="container">
           <div className="row">
             <div className="col-md-12">
               <div className="wrap-text text-center">
                 <h2
                   className="glamblush-heading animate-box"
-                  data-animate-effect="fadeInUp"
-                >
+                  data-animate-effect="fadeInUp">
                   Craft Your Future In Makeup Artistry At Mumbai&apos;s Top
                   Makeup Academy
                 </h2>
-
                 <div className="custom-btn">
                   <a
                     className="btn-style"

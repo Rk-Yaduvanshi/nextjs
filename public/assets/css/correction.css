@@ -1890,3 +1890,6 @@ select:focus {
 .gap-0{
     gap: 0;
 }
+html {
+    scroll-behavior: smooth;
+}
