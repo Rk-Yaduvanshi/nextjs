@@ -73,6 +73,30 @@ const Home = () => {
       });
     });
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      phone: e.target.phone.value,
+      city: e.target.city.value,
+      course: e.target.course.value,
+    };
+  
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+  
+    if (response.ok) {
+      alert('Your message has been sent!');
+    } else {
+      alert('Failed to send message. Please try again.');
+    }
+  };
+  
   
   return (
     <div>
@@ -133,8 +157,8 @@ const Home = () => {
         </div> 
       </div>
 
-      <Counter />
-      <Slider />
+      <Counter/>
+      <Slider/>
 
       <div className="section-padding glamblush-awards">
         <div className="container">
@@ -363,7 +387,7 @@ const Home = () => {
       className="section-banner background-image main-bg-color"
       style={{
         background: `url(${aboutglamImage}) center center`,
-        backgroundSize: "cover",
+        backgroundSize: "cover", 
       }}
     >
       <div className="container">
@@ -500,7 +524,7 @@ const Home = () => {
               </p>
             </div>
 
-            <form
+            <form onSubmit={handleSubmit}
               id="contact-form"
               name="contact-form"
               className="aos-init aos-animate"
